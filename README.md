@@ -1,5 +1,5 @@
-pp6calculator - A command line calculator
-=========================================
+pp6calculator - A basic command line calculator
+===============================================
 This is the README for pp6calculator.
 
 Authors
