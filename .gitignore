@@ -1,0 +1,10 @@
+# Temporaries created by editor
+*~
+*.swp
+
+# Compiled sources
+*.o
+*.so
+*.a
+*.dylib
+*.pyc
