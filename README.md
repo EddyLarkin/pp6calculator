@@ -9,3 +9,6 @@ Authors
 License
 -------
 pp6calculator is distributed under the terms od the Boost Software License.
+
+Installation
+------------
