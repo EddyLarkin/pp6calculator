@@ -11,7 +11,8 @@ int main(){
 	// allows user to specify and evaluate an operation (addition, multiplication...)
 	char opt;
 	std::string type;
-	double a, b, c;
+	double a, b, c, d, e;
+	int nParame;
 	int except = 0;
 	/*   Error types:
  	 *	0 = program succeeded
@@ -23,27 +24,71 @@ int main(){
 	while (except != 3){	
 		// continue running until user abort is found
 		except = 0;
-		std::cout << "Enter an operation type; (M)ultiply, (D)ivide, (A)dd or (S)ubtract, or (Q)uit:" << std::endl;
+		std::cout << "Enter an operation type; (M)ultiply, (D)ivide, (A)dd or (S)ubtract, (I)ntercept, (Q)uadratic, (T)hree-vector length or (F)our vector length, or e(X)it:" << std::endl;
 		std::cin >> opt;
 		std::cin.clear();
 		std::cin.ignore(INT_MAX, '\n');
 		
 		opt = toupper((char)opt);
-		if (opt == 'Q'){
+		switch (opt){
+			case 'A':
+			cout << "ADDITION:  Evaluates (a) + (b)" << std::endl;
+			nParams = 2;
+			break;
+			case 'S':
+			cout << "SUBTRACTION:  Evaluates (a) - (b)" << std::endl;
+			nParams = 2;
+			break;
+			case 'M':
+			cout << "MULTIPLICATION:  Evaluates (a) * (b)" << std::endl;
+			nParams = 2;
+			break;
+			case 'D':
+			cout << "DIVISION:  Evaluates (a) / (b)" << std::endl;
+			nParams = 2;
+			break;
+			case 'I':
+			cout << "INTERCEPT:  Evaluates x-intercept of y = (a)x + (b)" << std::endl;
+			nParams = 2;
+			break;
+			case 'Q':
+			cout << "QUADRATIC:  Evaluates solutions for y = (a)x^2 + (b)x + (c)" << std::endl;
+			nParams = 3;
+			break;
+			case 'T':
+			cout << "THREE VECTOR:  Evaluates length of 3-vector ((a), (b), (c))" << std::endl;
+			nParams = 3;
+			break;
+			case 'F':
+			cout << "FOUR VECTOR:  Evaluates length of 4-vector ((a), (b), (c), (d))" << std::endl;
+			nParams = 4;
+			break;
+
+		};
+		if (opt == 'X'){
 			except = 3;
 		}	
 		else if (opt == 'M' || opt == 'D' || opt == 'C' || opt == 'S'){
-			std::cout << " - First number:" << std::endl;
+			std::cout << " - First number (a):" << std::endl;
 			std::cin >> a;
 			std::cin.clear();
 			std::cin.ignore(INT_MAX, '\n');
-			std::cout << " - Second number:" << std::endl;
+			std::cout << " - Second number (b):" << std::endl;
 			std::cin >> b;
 			std::cin.clear();
 			std::cin.ignore(INT_MAX, '\n');
+			std::cout << " - Second number (c):" << std::endl;
+			std::cin >> c;
+			std::cin.clear();
+			std::cin.ignore(INT_MAX, '\n');
+			std::cout << " - Second number (d):" << std::endl;
+			std::cin >> d;
+			std::cin.clear();
+			std::cin.ignore(INT_MAX, '\n');
+
 			switch (opt){
 				case 'M':
-				c = multiply(a, b);
+				e = multiply(a, b);
 				type = " times ";
 				break;
 				case 'D':
@@ -51,16 +96,16 @@ int main(){
 					except = 2;
 				}
 				else{
-					c = divide(a, b);
+					e = divide(a, b);
 				};
 				type = " over ";
 				break;
 				case 'A':
-				c = add(a, b);
+				e = add(a, b);
 				type = " plus ";
 				break;
 				case 'S':
-				c = subtract(a, b);
+				e = subtract(a, b);
 				type = " subtract ";
 				break;
 			};	
@@ -80,7 +125,7 @@ int main(){
 			std::cout << "Exiting..." << std::endl;
 			break;
 			default:
-			std::cout << a << type << b << " is " << c << std::endl;
+			std::cout << a << type << b << " is " << e << std::endl;
 		};
 	};
 };	
