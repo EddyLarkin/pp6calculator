@@ -11,9 +11,14 @@ int main(){
 	// allows user to specify and evaluate an operation (addition, multiplication...)
 	char opt;
 	std::string type;
-	double a, b, c, d, e;
+	double a = 0;
+	double b = 0;
+	double c = 0;
+	double d = 0;
+	double e = 0;
 	int nParame;
 	int except = 0;
+	double (* operation)(double, double, double, double);
 	/*   Error types:
  	 *	0 = program succeeded
 	 *  	1 = invalid option
@@ -88,7 +93,7 @@ int main(){
 
 			switch (opt){
 				case 'M':
-				e = multiply(a, b);
+				operation = multiply;
 				type = " times ";
 				break;
 				case 'D':
@@ -96,19 +101,20 @@ int main(){
 					except = 2;
 				}
 				else{
-					e = divide(a, b);
+					operation = divide;
 				};
 				type = " over ";
 				break;
 				case 'A':
-				e = add(a, b);
+				operation = add;
 				type = " plus ";
 				break;
 				case 'S':
-				e = subtract(a, b);
+				operation = subtract;
 				type = " subtract ";
 				break;
-			};	
+			};
+			e = (* operation)(a, b, c, c);
 		}
 		else {
 			except = 1;
