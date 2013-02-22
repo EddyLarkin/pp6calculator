@@ -2,10 +2,10 @@
 #include <string>
 #include <climits>
 
-double multiply(double, double);
-double divide(double, double);
-double add(double, double);
-double subtract(double, double);
+double multiply(double=1, double=1,double=0,double=0);
+double divide(double=1, double=1,double=0,double=0);
+double add(double=0, double=0, double=0, double=0);
+double subtract(double=0, double=0, double=0, double=0);
 
 int main(){
 	// allows user to specify and evaluate an operation (addition, multiplication...)
@@ -130,19 +130,19 @@ int main(){
 	};
 };	
 
-double multiply(double a, double b){
+double multiply(double a, double b, double c, double d){
 	// returns the product of a and b
 	return a * b;
 };
-double divide(double a, double b){
-	// returns the product of a and b
+double divide(double a, double b, double c, double d){
+	// returns the quotient of a and b
 	return a / b;
 };
-double add(double a, double b){
-	// returns the product of a and b
+double add(double a, double b, double c, double d){
+	// returns the sum of a and b
 	return a + b;
 };
-double subtract(double a, double b){
-	// returns the product of a and b
+double subtract(double a, double b, double c, double d){
+	// returns the difference of a and b
 	return a - b;
 };
